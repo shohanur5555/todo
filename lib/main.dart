@@ -1,10 +1,14 @@
+import 'package:dart_practice_project/models/save_tast.dart';
 import 'package:dart_practice_project/pages/add_todo.dart';
 import 'package:dart_practice_project/pages/todo_list.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main(){
   runApp(
-   const MyApp(),
+   ChangeNotifierProvider(
+       create: (context) => SaveTast(),
+       child: const MyApp()),
   );
 }
 class MyApp extends StatelessWidget {
