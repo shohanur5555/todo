@@ -1,4 +1,7 @@
+import 'package:dart_practice_project/models/save_tast.dart';
+import 'package:dart_practice_project/models/task_model.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class AddTodo extends StatelessWidget {
   static const String routeName = '/add=-todo-screen';
@@ -23,7 +26,15 @@ class AddTodo extends StatelessWidget {
               ),
             ),
             ElevatedButton(
-                onPressed: (){}, 
+                onPressed: (){
+                  context.read<SaveTast>().addTask(
+                    Task(title: controller.text,
+                      isComplete: false,),
+
+                  );
+                  controller.clear();
+                  Navigator.of(context).pop();
+                },
                 child: const Text('Add'))
           ],
       ),),
